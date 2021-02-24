@@ -2,17 +2,14 @@
 const env = process.env.NODE_ENV
 
 // 配置
-let MYSQL_CONF
+let MONGODB_CONF
 let REDIS_CONF
 
 // 本地开发
 if (env === 'dev') {
-  // mysql
-  MYSQL_CONF = {
-    host: 'localhost',
-    user: 'root',
-    password: 'wang0123',
-    port: '3306',
+  // mongodb
+  MONGODB_CONF = {
+    url: 'mongodb://localhost:27017',
     database: 'myblog'
   }
 
@@ -25,12 +22,9 @@ if (env === 'dev') {
 
 // 开发配置
 if (env === 'production') {
-  // mysql
-  MYSQL_CONF = {
-    host: 'localhost',
-    user: 'root',
-    password: '9cde66100132bd33',
-    port: '3306',
+  // mongodb
+  MONGODB_CONF = {
+    url: 'mongodb://localhost:27017',
     database: 'myblog'
   }
 
@@ -42,6 +36,6 @@ if (env === 'production') {
 }
 
 module.exports = {
-  MYSQL_CONF,
+  MONGODB_CONF,
   REDIS_CONF
 }
